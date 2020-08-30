@@ -1,0 +1,23 @@
+*,  /*initial reset*/
+*::before,  /*initial reset*/
+*::after{   /*initial reset*/
+    box-sizing: border-box; /*initial reset*/
+} 
+
+body{
+    margin:0;   /*initial reset*/
+    font-family: 'Noto Sans JP', sans-serif;    /*initial reset*/
+    line-height: 1.6;   /*initial reset*/
+}
+
+img{    /*initial reset*/
+    max-width: 100%;    /*initial reset*/
+    display:block;  /*initial reset*/
+}
+
+h1,
+h2,
+h3,
+p{
+    margin: 0;
+}
