@@ -15,9 +15,74 @@ img{    /*initial reset*/
     display:block;  /*initial reset*/
 }
 
-h1,
-h2,
-h3,
-p{
-    margin: 0;
+h1, /*initial reset*/
+h2, /*initial reset*/
+h3, /*initial reset*/
+p{  /*initial reset*/
+    margin: 0;  /*initial reset*/
+}   
+
+/* shit + control + M -> mobile view on firefox
+doing mobile firts saves a lot of css (?) */
+
+.container {
+    width: 85%; /*initial reset*/
+    /* it prevents things from touching the sides*/
+    /* we could do that with padding...*/
+    max-width: 65em; /*initial reset*/
+    /*65*16 = 1040 pixels*/
+    margin: 0 auto; /*initial reset*/
 }
+
+.btn {
+    display: inline-block; /*initial reset*/
+    /**/
+    text-decoration: none; /*initial reset*/
+    color: var(--clr-text, #fff); /*initial reset*/
+    font-weight: 700;   /*initial reset*/
+    text-transform:uppercase;   /*initial reset*/
+    font-size:1.125rem; /*initial reset*/
+    padding: .5em 1.25em;   /*initial reset*/
+    background: var(--clr-accent, blue);    /*initial reset*/
+    border-radius: .25em;   /*initial reset*/
+    transition:     /*initial reset*/
+        trasnform 250ms ease-in-out,
+        opacity 250ms linear;
+}
+
+.btn:hover, /*initial reset*/
+.btn:focus {    /*initial reset*/
+    transform:scale(1.1);   /*initial reset*/
+    opacity: .9;    /*initial reset*/
+}
+
+.primary-title{
+    font-size: 4rem;
+    /*smallest font size 3rem, biggest 4.5, in between...*/
+    font-size: clamp(3rem,calc(5vw+1rem), 4.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.section-title{
+
+}
+
+.hero {
+    color: #fff;
+    text-align: center;
+    padding: 15em 0;
+    background-color: #222; /*if for any reason the background
+    image breaks, people will be able to read the text*/
+    @supports(background-blend-mode: multiply) {
+        background-image: 
+        url(../img/shoe-3.png), 
+        radial-gradient( #444, #111);
+    /*Two background images but the second is a gradient*/
+    /*background-size: 10%*/
+    }
+    /*support is a feature query that if the person browser support
+    background-blend with multiply*/
+}
+
+
