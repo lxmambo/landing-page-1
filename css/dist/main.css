@@ -2,15 +2,14 @@
 *::before,
 *::after {
   /*initial reset*/
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /*initial reset*/
 }
 
 body {
   margin: 0;
   /*initial reset*/
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   /*initial reset*/
   line-height: 1.6;
   /*initial reset*/
@@ -52,23 +51,16 @@ section {
 }
 
 .split {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 2em;
   /*space between items*/
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
 .split > * {
   /*estamos a dizer para esquecer width definidas antes
-        equivale a max-width (?)*/
-  -ms-flex-preferred-size: 30%;
-      flex-basis: 30%;
+  equivale a max-width (?)*/
+  flex-basis: 30%;
   min-width: 15em;
   /*imagens tem de ser pelo menos 15em*/
 }
@@ -96,23 +88,21 @@ is the direct child of spacing (?)*/
   /*initial reset*/
   font-size: 1.125rem;
   /*initial reset*/
-  padding: .5em 1.25em;
+  padding: 0.5em 1.25em;
   /*initial reset*/
   background: var(--clr-accent, blue);
   /*initial reset*/
-  border-radius: .25em;
+  border-radius: 0.25em;
   /*initial reset*/
-  -webkit-transition: trasnform 250ms ease-in-out, opacity 250ms linear;
-  transition: trasnform 250ms ease-in-out, opacity 250ms linear;
+  transition: trasnform 250ms ease-in-out, opacity 250ms linear;
 }
 
 .btn:hover,
 .btn:focus {
   /*initial reset*/
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
   /*initial reset*/
-  opacity: .9;
+  opacity: 0.9;
   /*initial reset*/
 }
 
@@ -139,13 +129,12 @@ is the direct child of spacing (?)*/
   padding: 15em 0;
   background-color: #222;
   /*if for any reason the background
-    image breaks, people will be able to read the text*/
+  image breaks, people will be able to read the text*/
   /*Sass allows for a media query to be inside an element,
-    if not it should be the element inside of the query*/
+  if not it should be the element inside of the query*/
   /*support is a feature query that if the person browser support
-    background-blend with multiply*/
+  background-blend with multiply*/
 }
-
 @supports (background-blend-mode: multiply) {
   .hero {
     background: url(../img/shoe-3.png), radial-gradient(#444, #111);
@@ -168,20 +157,12 @@ is the direct child of spacing (?)*/
 .featured {
   backgroun: #eee;
 }
-
 .featured__item {
   display: block;
   position: relative;
-  -webkit-transform: scale(0.5);
-          transform: scale(0.5);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
+  transform: scale(0.5);
   transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
 }
-
 .featured:hover, .featured:focus {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
 }
-/*# sourceMappingURL=main.css.map */

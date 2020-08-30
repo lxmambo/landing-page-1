@@ -1,0 +1,148 @@
+*,  /*initial reset*/
+*::before,  /*initial reset*/
+*::after{   /*initial reset*/
+    box-sizing: border-box; /*initial reset*/
+} 
+
+body{
+    margin:0;   /*initial reset*/
+    font-family: 'Noto Sans JP', sans-serif;    /*initial reset*/
+    line-height: 1.6;   /*initial reset*/
+}
+
+img{    /*initial reset*/
+    max-width: 100%;    /*initial reset*/
+    display:block;  /*initial reset*/
+}
+
+h1, /*initial reset*/
+h2, /*initial reset*/
+h3, /*initial reset*/
+p{  /*initial reset*/
+    margin: 0;  /*initial reset*/
+}   
+
+/* shit + control + M -> mobile view on firefox
+doing mobile firts saves a lot of css (?) */
+
+section {
+    padding: 7em 0;
+}
+
+.container {
+    width: 85%; /*initial reset*/
+    /* it prevents things from touching the sides*/
+    /* we could do that with padding...*/
+    max-width: 65em; /*initial reset*/
+    /*65*16 = 1040 pixels*/
+    margin: 0 auto; /*initial reset*/
+}
+
+.split{
+    display:flex;
+    gap: 2em; /*space between items*/
+    flex-wrap:wrap;
+    justify-content: center;
+
+    & > * {
+        /*estamos a dizer para esquecer width definidas antes
+        equivale a max-width (?)*/
+        flex-basis: 30%;
+        min-width: 15em; /*imagens tem de ser pelo menos 15em*/
+    }
+}
+
+/* & > * em sass equivale a 
+.split > * {} em css*/
+
+/*spacing is not going to do anything but the direct children inside will*/
+/*any elemente that is adjacent sibling, that comes after another sibling
+is the direct child of spacing (?)*/
+.spacing > * + * {
+    margin-top: var(--spacer, 2rem);
+}
+
+
+.btn {
+    display: inline-block; /*initial reset*/
+    /*anchors on links are default inline...text overlap (?)*/
+    text-decoration: none; /*initial reset*/
+    color: var(--clr-text, #fff); /*initial reset*/
+    font-weight: 700;   /*initial reset*/
+    text-transform:uppercase;   /*initial reset*/
+    font-size:1.125rem; /*initial reset*/
+    padding: .5em 1.25em;   /*initial reset*/
+    background: var(--clr-accent, blue);    /*initial reset*/
+    border-radius: .25em;   /*initial reset*/
+    transition:     /*initial reset*/
+        trasnform 250ms ease-in-out,
+        opacity 250ms linear;
+}
+
+.btn:hover, /*initial reset*/
+.btn:focus {    /*initial reset*/
+    transform:scale(1.1);   /*initial reset*/
+    opacity: .9;    /*initial reset*/
+}
+
+.primary-title{
+    font-size: 4rem; /*if the browser doesn't support clam, defaults to this*/
+    /*smallest font size 3rem, biggest 4.5, in between...*/
+    font-size: clamp(3rem,calc(5vw+1rem), 4.5rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.section-title{
+    text-align: center;
+    font-size: clamp(2.5rem,calc(5vw+1rem), 4rem);
+    line-height: 1;
+    color: #17353d;
+    margin-bottom: 3rem;
+}
+
+.hero {
+    color: #fff;
+    text-align: center;
+    padding: 15em 0;
+    background-color: #222; /*if for any reason the background
+    image breaks, people will be able to read the text*/
+    /*Sass allows for a media query to be inside an element,
+    if not it should be the element inside of the query*/
+    @supports(background-blend-mode: multiply) {
+        background: 
+        url(../img/shoe-3.png),
+        radial-gradient( #444, #111);
+    /*Two background images but the second is a gradient*/
+    /*background-size: 10%*/
+        background-blend-mode: multiply;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    /*support is a feature query that if the person browser support
+    background-blend with multiply*/
+}
+
+/*
+@supports(property: value) {
+    .hero {
+
+    }
+}
+*/
+
+.featured {
+    backgroun: #eee;
+    &__item{
+        display:block;
+        position: relative;
+        transform: scale(.5);
+        transition: transform 250ms ease-in-out;
+    }
+    &:hover,
+    &:focus{
+        transform: scale(1);
+    }
+
+}
